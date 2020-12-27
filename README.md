@@ -1,3 +1,3 @@
-# Strapi plugin wysiwyg
+# Strapi CKEditor5 plugin
 
-A quick description of wysiwyg.
+Replace Strapi default WYSIWYG editor with enhanced build of CKEditor 5
