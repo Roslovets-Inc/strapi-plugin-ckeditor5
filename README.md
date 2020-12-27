@@ -1,8 +1,8 @@
 # Strapi CKEditor5 plugin
 
-![strapi-plugin-ckeditor5](/sample/strapi-plugin-ckeditor5.png)
-
 Replace Strapi default WYSIWYG editor with enhanced build of CKEditor 5
+
+![strapi-plugin-ckeditor5](/sample/strapi-plugin-ckeditor5.png)
 
 
 ## Features
@@ -14,6 +14,8 @@ Replace Strapi default WYSIWYG editor with enhanced build of CKEditor 5
 
 ## How to install
 
+Go to your Strapi project folder and execute
+
 ```bash
 cd plugins
 git clone https://github.com/Roslovets-Inc/strapi-plugin-ckeditor5.git
@@ -22,3 +24,4 @@ npm i
 ```
 
  Don't forget to rebuild Strapi.
+ 
