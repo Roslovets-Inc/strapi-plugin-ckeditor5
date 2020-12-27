@@ -1,0 +1,24 @@
+{
+  "name": "strapi-plugin-ckeditor",
+  "version": "0.1.0",
+  "description": "Replace Strapi default WYSIWYG editor with CKEditor 5",
+  "strapi": {
+    "name": "ckeditor",
+    "icon": "edit",
+    "description": "Replace Strapi default WYSIWYG editor with CKEditor 5"
+  },
+  "dependencies": {
+    "@ckeditor/ckeditor5-react": "^3.0.0",
+    "ckeditor5-build-strapi-wysiwyg": "^0.1.6"
+  },
+  "author": {
+    "name": "Pavel Roslovets",
+    "email": "p.v.roslovets@gmail.com",
+    "url": "https://roslovets/github.io"
+  },
+  "engines": {
+    "node": ">=10.0.0",
+    "npm": ">=6.0.0"
+  },
+  "license": "MIT"
+}
