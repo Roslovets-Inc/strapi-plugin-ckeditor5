@@ -47,7 +47,7 @@ Don't forget to rebuild Strapi.
 Go to your Strapi project folder and execute
 
 ```bash
-git submodule update
+git submodule update --remote
 npm ci --prefix ./plugins/strapi-plugin-ckeditor5
 ```
 
