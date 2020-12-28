@@ -15,6 +15,8 @@ Replace Strapi default WYSIWYG editor with enhanced build of CKEditor 5
 
 ## How to install
 
+### Quick installation (not recommended, use for testing)
+
 Go to your Strapi project folder and execute
 
 ```bash
@@ -24,21 +26,32 @@ cd strapi-plugin-ckeditor5
 npm i
 ```
 
- Don't forget to rebuild Strapi.
+Don't forget to rebuild Strapi.
  
  
- ## How to update
+### Install submodule (recommended for your project)
 
 Go to your Strapi project folder and execute
 
 ```bash
-cd plugins/strapi-plugin-ckeditor5
-git reset --hard
-git pull
-npm i
+git submodule add https://github.com/Roslovets-Inc/strapi-plugin-ckeditor5.git ./plugins/strapi-plugin-ckeditor5
+git submodule update --init
+npm ci --prefix ./plugins/strapi-plugin-ckeditor5
 ```
 
- Don't forget to rebuild Strapi.
+Don't forget to rebuild Strapi.
+
+
+### Update submodule
+
+Go to your Strapi project folder and execute
+
+```bash
+git submodule update
+npm ci --prefix ./plugins/strapi-plugin-ckeditor5
+```
+
+Don't forget to rebuild Strapi.
  
 
 ## Acknowledgement
