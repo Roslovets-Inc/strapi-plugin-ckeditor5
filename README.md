@@ -15,7 +15,7 @@ Replace Strapi default WYSIWYG editor with enhanced build of CKEditor 5
 
 ## How to install
 
-### Quick installation (not recommended, use for testing)
+### Quick installation (not recommended, use for testing only)
 
 Go to your Strapi project folder and execute
 
