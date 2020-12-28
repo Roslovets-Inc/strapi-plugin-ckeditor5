@@ -26,6 +26,20 @@ npm i
 
  Don't forget to rebuild Strapi.
  
+ 
+ ## How to update
+
+Go to your Strapi project folder and execute
+
+```bash
+cd plugins/strapi-plugin-ckeditor5
+git reset --hard
+git pull
+npm i
+```
+
+ Don't forget to rebuild Strapi.
+ 
 
 ## Acknowledgement
 
