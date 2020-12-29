@@ -15,45 +15,30 @@ Replace Strapi default WYSIWYG editor with enhanced build of CKEditor 5
 
 ## How to install
 
-### Quick installation (not recommended, use for testing only)
-
 Go to your Strapi project folder and execute
 
 ```bash
-cd plugins
-git clone https://github.com/Roslovets-Inc/strapi-plugin-ckeditor5.git
-cd strapi-plugin-ckeditor5
-npm i
+npm i strapi-plugin-ckeditor5
 ```
 
-Don't forget to rebuild Strapi.
- 
- 
-### Install submodule (recommended for your project)
-
-Go to your Strapi project folder and execute
+Don't forget to rebuild Strapi
 
 ```bash
-git submodule add https://github.com/Roslovets-Inc/strapi-plugin-ckeditor5.git ./plugins/strapi-plugin-ckeditor5
-git submodule update --init
-npm ci --prefix ./plugins/strapi-plugin-ckeditor5
+npm run strapi build
 ```
 
-Don't forget to rebuild Strapi.
-
-
-### Update submodule
-
-Go to your Strapi project folder and execute
-
-```bash
-git submodule update --remote
-npm ci --prefix ./plugins/strapi-plugin-ckeditor5
-```
-
-Don't forget to rebuild Strapi.
- 
 
 ## Acknowledgement
 
-This plugin uses code from [official manual](https://strapi.io/documentation/developer-docs/latest/guides/registering-a-field-in-admin.html).
+This plugin uses some code from [official manual](https://strapi.io/documentation/developer-docs/latest/guides/registering-a-field-in-admin.html).
+
+
+## Links
+
+- [NPM package](https://www.npmjs.com/package/strapi-plugin-ckeditor5)
+- [GitHub repository](https://github.com/Roslovets-Inc/strapi-plugin-ckeditor5)
+
+
+## ⭐️ Show your support
+
+Give a star if this project helped you.
