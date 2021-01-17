@@ -28,6 +28,10 @@ npm run strapi build
 ```
 
 
+## How to add more features to the editor
+If you want to see more features in this plugin feel free to request it in [issues](https://github.com/Roslovets-Inc/ckeditor5-build-strapi-wysiwyg/issues) or create pull request to the [ckeditor5-build-strapi-wysiwyg](https://github.com/Roslovets-Inc/ckeditor5-build-strapi-wysiwyg) repo.
+
+
 ## Acknowledgement
 
 This plugin uses some code from [official manual](https://strapi.io/documentation/developer-docs/latest/guides/registering-a-field-in-admin.html).
