@@ -29,7 +29,7 @@ npm run strapi build
 
 
 ## How to add more features to the editor
-If you want to see more features in this plugin feel free to request it in [issues](https://github.com/Roslovets-Inc/ckeditor5-build-strapi-wysiwyg/issues) or create pull request in the [ckeditor5-build-strapi-wysiwyg](https://github.com/Roslovets-Inc/ckeditor5-build-strapi-wysiwyg) repo.
+If you want to see more features in this plugin feel free to request it in [issues](https://github.com/Roslovets-Inc/ckeditor5-build-strapi-wysiwyg/issues) or create pull request in the [ckeditor5-build-strapi-wysiwyg](https://github.com/Roslovets-Inc/ckeditor5-build-strapi-wysiwyg) repo. Together we will build a comprehensive editor for common needs.
 
 
 ## Acknowledgement
