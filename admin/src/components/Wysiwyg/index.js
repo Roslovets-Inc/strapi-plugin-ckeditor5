@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { isEmpty } from 'lodash';
 import { Button } from '@buffetjs/core';
-import { Label, InputDescription, InputErrors } from 'strapi-helper-plugin';
+import { Label, InputDescription, InputErrors, useGlobalContext } from 'strapi-helper-plugin';
 import Editor from '../CKEditor';
 import MediaLib from '../MediaLib';
 
@@ -15,7 +15,9 @@ const Wysiwyg = ({
   onChange,
   value,
 }) => {
+  const { formatMessage } = useGlobalContext();
   const [isOpen, setIsOpen] = useState(false);
+  let mediaLibTitle = formatMessage({ id: 'Media Library' });
   let spacer = !isEmpty(inputDescription) ? <div style={{ height: '.4rem' }} /> : <div />;
 
   if (!noErrorsDescription && !isEmpty(errors)) {
@@ -44,9 +46,9 @@ const Wysiwyg = ({
       }}
     >
       <Label htmlFor={name} message={label} style={{ marginBottom: 10 }} />
-      <div>
+      <div style={{ marginBottom: 10 }}>
         <Button color="primary" onClick={handleToggle}>
-          Media Library
+          {mediaLibTitle}
         </Button>
       </div>
       <Editor name={name} onChange={onChange} value={value} />
