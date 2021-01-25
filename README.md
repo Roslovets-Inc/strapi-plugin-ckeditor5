@@ -4,6 +4,8 @@ Replace Strapi default WYSIWYG editor with enhanced build of CKEditor 5
 
 ![strapi-plugin-ckeditor5](/sample/strapi-plugin-ckeditor5.png)
 
+*Sample for [this](https://faryaros.com/articles/it2021) article.*
+
 
 ## Features
 
