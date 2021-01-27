@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { isEmpty } from 'lodash';
-import { Button } from '@buffetjs/core';
-import { Label, InputDescription, InputErrors, useGlobalContext } from 'strapi-helper-plugin';
+import { Label, InputDescription, InputErrors, useGlobalContext, prefixFileUrlWithBackendUrl, auth } from 'strapi-helper-plugin';
 import Editor from '../CKEditor';
 import MediaLib from '../MediaLib';
 
@@ -15,27 +14,44 @@ const Wysiwyg = ({
   onChange,
   value,
 }) => {
-  const { formatMessage } = useGlobalContext();
+  const { formatMessage, currentLocale } = useGlobalContext();
   const [isOpen, setIsOpen] = useState(false);
-  let mediaLibTitle = formatMessage({ id: 'Media Library' });
+  const [editor, setEditor] = useState(null);
+  const mediaLibTitle = formatMessage({ id: 'Media Library' });
   let spacer = !isEmpty(inputDescription) ? <div style={{ height: '.4rem' }} /> : <div />;
+
+
+  const toggleMediaLib = (data) => setIsOpen(prev => !prev);
+
+  const strapiMediaLib = {
+    onToggle: toggleMediaLib,
+    label: mediaLibTitle
+  };
+
+  const strapiUpload = {
+    uploadUrl: `${strapi.backendURL}/upload`,
+    headers: {
+      Authorization: 'Bearer ' + auth.getToken(),
+    }
+  };
+
+  const onImageSelected = (data) => {
+    if (data && data.mime.includes('image')) {
+      const url = prefixFileUrlWithBackendUrl(data.url);
+      editor.model.change(writer => {
+        const imageElement = writer.createElement('image', {
+          src: url
+        });
+        editor.model.insertContent(imageElement, editor.model.document.selection);
+      });
+      // Handle videos and other type of files by adding some code
+    }
+  };
+
 
   if (!noErrorsDescription && !isEmpty(errors)) {
     spacer = <div />;
   }
-
-  const handleChange = data => {
-    if (data.mime.includes('image')) {
-      const imgTag = `<p><img src="${data.url}" caption="${data.caption}" alt="${data.alternativeText}"></img></p>`;
-      const newValue = value ? `${value}${imgTag}` : imgTag;
-
-      onChange({ target: { name, value: newValue } });
-    }
-
-    // Handle videos and other type of files by adding some code
-  };
-
-  const handleToggle = () => setIsOpen(prev => !prev);
 
   return (
     <div
@@ -46,19 +62,16 @@ const Wysiwyg = ({
       }}
     >
       <Label htmlFor={name} message={label} style={{ marginBottom: 10 }} />
-      <div style={{ marginBottom: 10 }}>
-        <Button color="primary" onClick={handleToggle}>
-          {mediaLibTitle}
-        </Button>
-      </div>
-      <Editor name={name} onChange={onChange} value={value} />
-      <InputDescription
-        message={inputDescription}
-        style={!isEmpty(inputDescription) ? { marginTop: '1.4rem' } : {}}
-      />
+      <Editor name={name} onChange={onChange} value={value} setEditor={setEditor} config={
+        {
+          language: currentLocale,
+          strapiUpload: strapiUpload,
+          strapiMediaLib: strapiMediaLib,
+        }
+      }/>
+      <InputDescription message={inputDescription} style={!isEmpty(inputDescription) ? { marginTop: '1.4rem' } : {}} />
       <InputErrors errors={(!noErrorsDescription && errors) || []} name={name} />
-      {spacer}
-      <MediaLib onToggle={handleToggle} isOpen={isOpen} onChange={handleChange} />
+      <MediaLib onToggle={toggleMediaLib} isOpen={isOpen} onChange={onImageSelected} />
     </div>
   );
 };
