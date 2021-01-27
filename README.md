@@ -11,7 +11,7 @@ Replace default Strapi markdown WYSIWYG editor with enhanced build of HTML CKEdi
 
 - [Enhanced build of CKEditor 5](https://github.com/Roslovets-Inc/ckeditor5-build-strapi-wysiwyg) with more capabilities then Classic Editor build
 - Automatically upload Inserted images to Media Library (thanks to [ckeditor5-strapi-upload-plugin](https://github.com/gtomato/ckeditor5-strapi-upload-plugin))
-- Media Library button to insert stored images directly to the editor (thanks to [official guide](https://strapi.io/documentation/developer-docs/latest/guides/registering-a-field-in-admin.html)) 🔥
+- Media Library button to insert stored images directly to the editor 🔥
 - Automatic translation of UI into selected in Strapi language 🔥
 
 
