@@ -1,6 +1,6 @@
 # Strapi CKEditor5 plugin
 
-Replace Strapi default WYSIWYG editor with enhanced build of CKEditor 5
+Replace default Strapi markdown WYSIWYG editor with enhanced build of HTML CKEditor 5
 
 ![strapi-plugin-ckeditor5](/sample/strapi-plugin-ckeditor5.png)
 
@@ -10,9 +10,9 @@ Replace Strapi default WYSIWYG editor with enhanced build of CKEditor 5
 ## Features
 
 - [Enhanced build of CKEditor 5](https://github.com/Roslovets-Inc/ckeditor5-build-strapi-wysiwyg) with more capabilities then Classic Editor build
-- Media Library button to insert stored images directly to editor (thanks to [official guide](https://strapi.io/documentation/developer-docs/latest/guides/registering-a-field-in-admin.html))
 - Automatically upload Inserted images to Media Library (thanks to [ckeditor5-strapi-upload-plugin](https://github.com/gtomato/ckeditor5-strapi-upload-plugin))
-- Works with Strapi 3.4.0+
+- Media Library button to insert stored images directly to the editor (thanks to [official guide](https://strapi.io/documentation/developer-docs/latest/guides/registering-a-field-in-admin.html)) 🔥
+- Automatic translation of UI into selected in Strapi language 🔥
 
 
 ## How to install
