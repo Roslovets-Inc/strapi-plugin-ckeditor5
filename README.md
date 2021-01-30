@@ -4,7 +4,7 @@ Replace default [Strapi](https://github.com/strapi/strapi) markdown WYSIWYG edit
 
 ![strapi-plugin-ckeditor5](/sample/strapi-plugin-ckeditor5.png)
 
-*Sample for [this](https://faryaros.com/articles/it2021) article.
+*Sample for [this](https://faryaros.com/articles/it2021) article.*
 
 [👀 **Live Demo**](https://roslovets-inc.github.io/ckeditor5-build-strapi-wysiwyg/sample.html)
 
