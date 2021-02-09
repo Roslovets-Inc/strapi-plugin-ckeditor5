@@ -4,6 +4,7 @@ import { isEmpty } from 'lodash';
 import { Label, InputDescription, InputErrors, useGlobalContext, prefixFileUrlWithBackendUrl, auth } from 'strapi-helper-plugin';
 import Editor from '../CKEditor';
 import MediaLib from '../MediaLib';
+import config from '../../config/ckeditor';
 
 const Wysiwyg = ({
   inputDescription,
@@ -14,21 +15,22 @@ const Wysiwyg = ({
   onChange,
   value,
 }) => {
-  const { formatMessage, currentLocale } = useGlobalContext();
   const [isOpen, setIsOpen] = useState(false);
   const [editor, setEditor] = useState(null);
-  const mediaLibTitle = formatMessage({ id: 'Media Library' });
+  const toggleMediaLib = (data) => setIsOpen(prev => !prev);
   let spacer = !isEmpty(inputDescription) ? <div style={{ height: '.4rem' }} /> : <div />;
 
+  const { formatMessage, currentLocale } = useGlobalContext();
+  const mediaLibTitle = formatMessage({ id: 'Media Library' });
 
-  const toggleMediaLib = (data) => setIsOpen(prev => !prev);
+  config.language = currentLocale;
 
-  const strapiMediaLib = {
+  config.strapiMediaLib = {
     onToggle: toggleMediaLib,
     label: mediaLibTitle
   };
 
-  const strapiUpload = {
+  config.strapiUpload = {
     uploadUrl: `${strapi.backendURL}/upload`,
     headers: {
       Authorization: 'Bearer ' + auth.getToken(),
@@ -53,6 +55,7 @@ const Wysiwyg = ({
     spacer = <div />;
   }
 
+
   return (
     <div
       style={{
@@ -62,13 +65,7 @@ const Wysiwyg = ({
       }}
     >
       <Label htmlFor={name} message={label} style={{ marginBottom: 10 }} />
-      <Editor name={name} onChange={onChange} value={value} setEditor={setEditor} config={
-        {
-          language: currentLocale,
-          strapiUpload: strapiUpload,
-          strapiMediaLib: strapiMediaLib,
-        }
-      }/>
+      <Editor name={name} onChange={onChange} value={value} setEditor={setEditor} config={config} />
       <InputDescription message={inputDescription} style={!isEmpty(inputDescription) ? { marginTop: '1.4rem' } : {}} />
       <InputErrors errors={(!noErrorsDescription && errors) || []} name={name} />
       <MediaLib onToggle={toggleMediaLib} isOpen={isOpen} onChange={onImageSelected} />
