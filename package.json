@@ -22,6 +22,9 @@
     "framework",
     "strapi"
   ],
+  "files": [
+    "admin"
+  ],
   "strapi": {
     "name": "ckeditor",
     "icon": "edit",
