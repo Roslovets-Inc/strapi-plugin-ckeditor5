@@ -6,7 +6,7 @@ Replace default [Strapi](https://github.com/strapi/strapi) markdown WYSIWYG edit
 
 *Sample for [this](https://faryaros.com/articles/it2021) article.*
 
-[👀 **Live Demo**](https://roslovets-inc.github.io/ckeditor5-build-strapi-wysiwyg/sample.html)
+[👀 Full set of features](https://github.com/Roslovets-Inc/ckeditor5-build-strapi-wysiwyg/blob/main/sample.png) | [👀 **Live Demo**](https://roslovets-inc.github.io/ckeditor5-build-strapi-wysiwyg/sample.html)
 
 
 ## Features
@@ -37,6 +37,10 @@ Don't forget to rebuild Strapi
 ```bash
 npm run strapi build
 ```
+
+## How to remove unused buttons
+
+See [customization guide](#how-to-customize-editor-optional).
 
 
 ## How to customize editor (optional)
