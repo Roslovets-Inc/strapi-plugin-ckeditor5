@@ -6,7 +6,7 @@ Replace default [Strapi](https://github.com/strapi/strapi) markdown WYSIWYG edit
 
 *Sample for [this](https://faryaros.com/articles/it2021) article.*
 
-[👀 Full set of features](https://github.com/Roslovets-Inc/ckeditor5-build-strapi-wysiwyg/blob/main/sample.png) | [👀 **Live Demo**](https://roslovets-inc.github.io/ckeditor5-build-strapi-wysiwyg/sample.html)
+[👀 **Live Demo**](https://roslovets-inc.github.io/ckeditor5-build-strapi-wysiwyg/sample.html)
 
 
 ## Features
@@ -17,6 +17,7 @@ Replace default [Strapi](https://github.com/strapi/strapi) markdown WYSIWYG edit
 - Automatically upload Inserted images to Media Library (thanks to [ckeditor5-strapi-upload-plugin](https://github.com/gtomato/ckeditor5-strapi-upload-plugin))
 - Media Library button to insert stored images directly to the editor 🔥
 - Automatic translation of UI into selected in Strapi language 🔥
+- Full screen mode 🔥
 
 
 ## How to try
