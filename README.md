@@ -49,9 +49,9 @@ If you want to change appearance of the editor or remove unused buttons you can 
 
 0. Go to your Strapi folder
 
-1. Copy empty config file `node_modules/strapi-plugin-ckeditor5/admin/src/config/ckeditor.js` to `extensions/ckeditor5/admin/src/config`
+1. Copy template config file [`node_modules/strapi-plugin-ckeditor5/admin/src/config/ckeditor.js`](admin/src/config/ckeditor.js) to `extensions/ckeditor5/admin/src/config`
 
-2. Add to `extensions/ckeditor5/admin/src/config/ckeditor.js` your custom [configuration](https://ckeditor.com/docs/ckeditor5/latest/builds/guides/integration/configuration.html)
+2. Modify to `extensions/ckeditor5/admin/src/config/ckeditor.js` (see [configuration](https://ckeditor.com/docs/ckeditor5/latest/builds/guides/integration/configuration.html) guide)
 
 3. Rebuild Strapi
 
