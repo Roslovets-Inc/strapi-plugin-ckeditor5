@@ -35,14 +35,13 @@ const Wrapper = styled.div`
   }
 `;
 
-const Editor = ({ onChange, name, value, setEditor, config }) => {
+const Editor = ({ onChange, name, value, config }) => {
   return (
     <Wrapper>
       <CKEditor
         editor={ClassicEditor}
         data={value}
         onReady={editor => {
-          setEditor(editor);
           if (value) {
             editor.setData(value);
           }

@@ -17,7 +17,12 @@ const Wysiwyg = ({
 }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [editor, setEditor] = useState(null);
-  const toggleMediaLib = (data) => setIsOpen(prev => !prev);
+  const toggleMediaLib = (editor) => {
+    if (editor) {
+      setEditor(editor);
+    }
+    setIsOpen(prev => !prev)
+  };
   let spacer = !isEmpty(inputDescription) ? <div style={{ height: '.4rem' }} /> : <div />;
 
   const { formatMessage, currentLocale } = useGlobalContext();
@@ -65,10 +70,10 @@ const Wysiwyg = ({
       }}
     >
       <Label htmlFor={name} message={label} style={{ marginBottom: 10 }} />
-      <Editor name={name} onChange={onChange} value={value} setEditor={setEditor} config={config} />
+      <Editor name={name} onChange={onChange} value={value} config={config} />
       <InputDescription message={inputDescription} style={!isEmpty(inputDescription) ? { marginTop: '1.4rem' } : {}} />
       <InputErrors errors={(!noErrorsDescription && errors) || []} name={name} />
-      <MediaLib onToggle={toggleMediaLib} isOpen={isOpen} onChange={onImageSelected} />
+      <MediaLib isOpen={isOpen} onToggle={toggleMediaLib} onChange={onImageSelected} />
     </div>
   );
 };
