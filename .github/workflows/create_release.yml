@@ -1,0 +1,20 @@
+name: 🚀 Create release
+
+on:
+  push:
+    tags:
+      - v*
+
+jobs:
+  create-release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 🔃 Checkout
+        uses: actions/checkout@v2
+        with:
+          persist-credentials: false
+
+      - name: 🔖 Create Release
+        uses: softprops/action-gh-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
