@@ -12,6 +12,8 @@ module.exports = ({
         //     'bold',
         //     'italic',
         //     'underline',
+        //     'subscript',
+        //     'superscript',
         //     'code',
         //     'link',
         //     'bulletedList',
