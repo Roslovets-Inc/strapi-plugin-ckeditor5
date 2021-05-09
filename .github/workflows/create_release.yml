@@ -11,10 +11,13 @@ jobs:
     steps:
       - name: 🔃 Checkout
         uses: actions/checkout@v2
-        with:
-          persist-credentials: false
 
       - name: 🔖 Create Release
         uses: softprops/action-gh-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: 📢 Publish npm package
+        uses: JS-DevTools/npm-publish@v1
+        with:
+          token: ${{ secrets.NPM_TOKEN }}
