@@ -4,10 +4,9 @@ Replace default [Strapi](https://github.com/strapi/strapi) markdown WYSIWYG edit
 
 ![strapi-plugin-ckeditor5](sample/strapi-plugin-ckeditor5.png)
 
-*Sample for [this](https://faryaros.com/articles/it2021) article.*
+_Sample for [this](https://faryaros.com/articles/it2021) article._
 
-[👀 **Live Demo**](https://roslovets-inc.github.io/ckeditor5-build-strapi-wysiwyg/sample.html)
-
+[👀 **Live Demo**](https://roslovets-inc.github.io/ckeditor5-build-strapi-wysiwyg/)
 
 ## Features
 
@@ -19,11 +18,9 @@ Replace default [Strapi](https://github.com/strapi/strapi) markdown WYSIWYG edit
 - Automatic translation of UI into selected in Strapi language 🔥
 - Full screen mode 🔥
 
-
 ## How to try
 
-Check out [👀 **live demo**](https://roslovets-inc.github.io/ckeditor5-build-strapi-wysiwyg/sample.html) where you can test most of the features.
-
+Check out [👀 **live demo**](https://roslovets-inc.github.io/ckeditor5-build-strapi-wysiwyg/) where you can test most of the features.
 
 ## How to install
 
@@ -42,7 +39,6 @@ npm run strapi build
 ## How to remove unused buttons
 
 See [customization guide](#how-to-customize-editor-optional).
-
 
 ## How to customize editor (optional)
 
@@ -64,43 +60,40 @@ npm run strapi build
 
 ```js
 // ckeditor.js
-module.exports = ({
-	// Override toolbar config to leave a few buttons
-    toolbar: {
-		items: [
-			'heading',
-			'|',
-			'bold',
-			'italic',
-			'link',
-			'alignment',
-			'|',
-			'undo',
-			'redo'
-		]
-	}
-});
+module.exports = {
+  // Override toolbar config to leave a few buttons
+  toolbar: {
+    items: [
+      "heading",
+      "|",
+      "bold",
+      "italic",
+      "link",
+      "alignment",
+      "|",
+      "undo",
+      "redo",
+    ],
+  },
+};
 ```
 
 ### Default configuration
 
 For information and inspiration: default editor configuration defined [here](https://github.com/Roslovets-Inc/ckeditor5-build-strapi-wysiwyg/blob/e259d72cfc611a0f03aaa7686865412f421fc49c/src/ckeditor.js#L78).
 
-
 ## How to add more features to the editor
-If you want to see more features in this plugin feel free to request it in [issues](https://github.com/Roslovets-Inc/strapi-plugin-ckeditor5/issues) or create pull request in the [ckeditor5-build-strapi-wysiwyg](https://github.com/Roslovets-Inc/ckeditor5-build-strapi-wysiwyg) repo. Together we will build a comprehensive editor for common needs.
 
+If you want to see more features in this plugin feel free to request it in [issues](https://github.com/Roslovets-Inc/strapi-plugin-ckeditor5/issues) or create pull request in the [ckeditor5-build-strapi-wysiwyg](https://github.com/Roslovets-Inc/ckeditor5-build-strapi-wysiwyg) repo. Together we will build a comprehensive editor for common needs.
 
 ## Acknowledgement
 
 This plugin uses some code from [official manual](https://strapi.io/documentation/developer-docs/latest/guides/registering-a-field-in-admin.html).
 
-
 ## Links
 
 - [NPM package](https://www.npmjs.com/package/strapi-plugin-ckeditor5)
 - [GitHub repository](https://github.com/Roslovets-Inc/strapi-plugin-ckeditor5)
-
 
 ## ⭐️ Show your support
 
