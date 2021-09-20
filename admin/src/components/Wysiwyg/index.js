@@ -44,13 +44,22 @@ const Wysiwyg = ({
 
   const onImageSelected = (data) => {
     if (data && data.mime.includes('image')) {
-      
-      console.log(data);
       const url = prefixFileUrlWithBackendUrl(data.url);
       editor.model.change(writer => {
-        const imageElement = writer.createElement('image', {
+        const imageAttributes = {
           src: url
-        });
+        };
+        if (data.formats) {
+          //CKEditor5 always uses only sizes="100vw"
+          const srcset = [];
+          Object.values(data.formats).sort((f1, f2) => f1.width - f2.width).forEach((format, index, array) => {
+            srcset.push(`${prefixFileUrlWithBackendUrl(format.url)} ${format.width}w`)
+          })
+          //also add the original size last
+          srcset.push(`${prefixFileUrlWithBackendUrl(data.url)} ${data.width}w`)
+          imageAttributes.srcset = {data: srcset.join(', '), width: data.width};
+        }
+        const imageElement = writer.createElement('image', imageAttributes);
         editor.model.insertContent(imageElement, editor.model.document.selection);
       });
       // Handle videos and other type of files by adding some code
