@@ -8,6 +8,7 @@ module.exports = {
     //     "fontFamily",
     //     "fontSize",
     //     "fontColor",
+    //     "highLight",
     //     "|",
     //     "bold",
     //     "italic",
