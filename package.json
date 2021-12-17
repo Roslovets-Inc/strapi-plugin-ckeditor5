@@ -23,7 +23,8 @@
     "strapi"
   ],
   "files": [
-    "admin"
+    "admin",
+    "strapi-admin.js"
   ],
   "strapi": {
     "name": "strapi-plugin-ckeditor5",
