@@ -8,19 +8,21 @@ Replace default [Strapi](https://github.com/strapi/strapi) markdown WYSIWYG edit
 
 ## Features
 
-- [Enhanced build of CKEditor 5](https://github.com/Roslovets-Inc/ckeditor5-build-strapi-wysiwyg) with more capabilities then Classic Editor build
-- Extensive set of features for your rich content
-- Optional editor customization
-- Automatically upload Inserted images to Media Library (thanks to [ckeditor5-strapi-upload-plugin](https://github.com/gtomato/ckeditor5-strapi-upload-plugin))
-- Media Library button to insert stored images directly to the editor 🔥
-- Automatic translation of UI into selected in Strapi language 🔥
-- Full screen mode 🔥
+-   [Enhanced build of CKEditor 5](https://github.com/Roslovets-Inc/ckeditor5-build-strapi-wysiwyg) with more capabilities then Classic Editor build
+-   Extensive set of features for your rich content
+-   Optional editor customization
+-   Automatically upload Inserted images to Media Library (thanks to [ckeditor5-strapi-upload-plugin](https://github.com/gtomato/ckeditor5-strapi-upload-plugin))
+-   Media Library button to insert stored images directly to the editor 🔥
+-   Automatic translation of UI into selected in Strapi language 🔥 (Strapi v3)
+-   Full screen mode 🔥
 
 ## How to try
 
 Check out [👀 **live demo**](https://roslovets-inc.github.io/ckeditor5-build-strapi-wysiwyg/) where you can test most of the features.
 
 ## How to install
+
+### Strapi v4 (work in progress)
 
 Go to your Strapi project folder and execute
 
@@ -34,11 +36,25 @@ Don't forget to rebuild Strapi
 npm run strapi build
 ```
 
-## How to remove unused buttons
+### Strapi v3
+
+Go to your Strapi project folder and execute
+
+```bash
+npm i strapi-plugin-ckeditor5@1.14.0
+```
+
+Don't forget to rebuild Strapi
+
+```bash
+npm run strapi build
+```
+
+## How to remove unused buttons (Strapi v3)
 
 See [customization guide](#how-to-customize-editor-optional).
 
-## How to customize editor (optional)
+## How to customize editor (optional, Strapi v3)
 
 If you want to change appearance of the editor or remove unused buttons you can add a custom CKEditor configuration to override default settings:
 
@@ -54,29 +70,29 @@ If you want to change appearance of the editor or remove unused buttons you can 
 npm run strapi build
 ```
 
-### Configuration example
+### Configuration example (Strapi v3)
 
 ```js
 // ckeditor.js
 module.exports = {
-  // Override toolbar config to leave a few buttons
-  toolbar: {
-    items: [
-      "heading",
-      "|",
-      "bold",
-      "italic",
-      "link",
-      "alignment",
-      "|",
-      "undo",
-      "redo",
-    ],
-  },
+    // Override toolbar config to leave a few buttons
+    toolbar: {
+        items: [
+            "heading",
+            "|",
+            "bold",
+            "italic",
+            "link",
+            "alignment",
+            "|",
+            "undo",
+            "redo",
+        ],
+    },
 };
 ```
 
-### Default configuration
+### Default configuration (Strapi v3)
 
 For information and inspiration: default editor configuration defined [here](https://github.com/Roslovets-Inc/ckeditor5-build-strapi-wysiwyg/blob/e259d72cfc611a0f03aaa7686865412f421fc49c/src/ckeditor.js#L78).
 
@@ -90,8 +106,8 @@ This plugin uses some code from [official manual](https://strapi.io/documentatio
 
 ## Links
 
-- [NPM package](https://www.npmjs.com/package/strapi-plugin-ckeditor5)
-- [GitHub repository](https://github.com/Roslovets-Inc/strapi-plugin-ckeditor5)
+-   [NPM package](https://www.npmjs.com/package/strapi-plugin-ckeditor5)
+-   [GitHub repository](https://github.com/Roslovets-Inc/strapi-plugin-ckeditor5)
 
 ## ⭐️ Show your support
 
