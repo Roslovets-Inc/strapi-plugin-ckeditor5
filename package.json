@@ -26,16 +26,21 @@
     "admin"
   ],
   "strapi": {
-    "name": "ckeditor",
-    "icon": "edit",
-    "description": "Replace Strapi default WYSIWYG editor with enhanced build of CKEditor 5"
+    "name": "strapi-plugin-ckeditor5",
+    "displayName": "CKEditor 5",
+    "description": "Replace Strapi default WYSIWYG editor with enhanced build of CKEditor 5",
+    "kind": "plugin"
   },
   "scripts": {
     "postversion": "git push && git push --tags"
   },
   "dependencies": {
     "@ckeditor/ckeditor5-react": "^3.0.3",
-    "ckeditor5-build-strapi-wysiwyg": "^1.14.0"
+    "@strapi/design-system": "^0.0.1-alpha.70",
+    "@strapi/helper-plugin": "^4.0.0",
+    "ckeditor5-build-strapi-wysiwyg": "^2.0.0-rc.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
   },
   "author": {
     "name": "Pavel Roslovets",

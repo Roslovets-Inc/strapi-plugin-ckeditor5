@@ -1,89 +1,131 @@
-import React, { useState } from 'react';
-import PropTypes from 'prop-types';
-import { isEmpty } from 'lodash';
-import { Label, InputDescription, InputErrors, useGlobalContext, prefixFileUrlWithBackendUrl, auth } from 'strapi-helper-plugin';
-import Editor from '../CKEditor';
-import MediaLib from '../MediaLib';
-import config from '../../config/ckeditor';
+import React, { useState } from "react";
+import { useIntl } from "react-intl";
+import PropTypes from "prop-types";
+import { Box, Stack, Typography } from "@strapi/design-system";
+import { prefixFileUrlWithBackendUrl, auth } from "@strapi/helper-plugin";
+import Editor from "../CKEditor";
+import MediaLib from "../MediaLib";
+import config from "../../config/ckeditor";
 
-const Wysiwyg = ({
-  inputDescription,
-  errors,
-  label,
-  name,
-  noErrorsDescription,
-  onChange,
-  value,
-}) => {
+const Wysiwyg = (props) => {
+  const { formatMessage } = useIntl();
+  const { description, error, intlLabel, placeholder, name, onChange, value } =
+    props;
   const [isOpen, setIsOpen] = useState(false);
   const [editor, setEditor] = useState(null);
+
+  const handleChange = (data) => {
+    if (data) {
+      editor.model.change((writer) => {
+        const divElement = writer.createElement("div");
+        data.forEach((file) => {
+          const url = prefixFileUrlWithBackendUrl(file.url);
+          const imageElement = writer.createElement("image", {
+            src: url,
+          });
+          divElement._appendChild(imageElement);
+        });
+        editor.model.insertContent(divElement, editor.model.document.selection);
+      });
+    }
+
+    // Handle videos and other type of files by adding some code
+  };
+
   const toggleMediaLib = (editor) => {
     if (editor) {
       setEditor(editor);
     }
-    setIsOpen(prev => !prev)
+    setIsOpen((prev) => !prev);
   };
-  let spacer = !isEmpty(inputDescription) ? <div style={{ height: '.4rem' }} /> : <div />;
 
-  const { formatMessage, currentLocale } = useGlobalContext();
-  const mediaLibTitle = formatMessage({ id: 'Media Library' });
+  const errorMessage = error
+    ? formatMessage({ id: error, defaultMessage: error })
+    : "";
 
-  config.language = currentLocale;
+  const label = intlLabel.id
+    ? formatMessage(
+        { id: intlLabel.id, defaultMessage: intlLabel.defaultMessage },
+        { ...intlLabel.values }
+      )
+    : name;
+
+  const hint = description
+    ? formatMessage(
+        { id: description.id, defaultMessage: description.defaultMessage },
+        { ...description.values }
+      )
+    : "";
 
   config.strapiMediaLib = {
     onToggle: toggleMediaLib,
-    label: mediaLibTitle
+    label: label,
   };
 
   config.strapiUpload = {
     uploadUrl: `${strapi.backendURL}/upload`,
     headers: {
-      Authorization: 'Bearer ' + auth.getToken(),
-    }
+      Authorization: "Bearer " + auth.getToken(),
+    },
   };
-
-  const onImageSelected = (data) => {
-    if (data && data.mime.includes('image')) {
-      const url = prefixFileUrlWithBackendUrl(data.url);
-      editor.model.change(writer => {
-        const imageElement = writer.createElement('image', {
-          src: url
-        });
-        editor.model.insertContent(imageElement, editor.model.document.selection);
-      });
-      // Handle videos and other type of files by adding some code
-    }
-  };
-
-
-  if (!noErrorsDescription && !isEmpty(errors)) {
-    spacer = <div />;
-  }
-
 
   return (
-    <div
-      style={{
-        marginBottom: '1.6rem',
-        fontSize: '1.3rem',
-        fontFamily: 'Lato',
-      }}
-    >
-      <Label htmlFor={name} message={label} style={{ marginBottom: 10 }} />
-      <Editor name={name} onChange={onChange} value={value} config={config} />
-      <InputDescription message={inputDescription} style={!isEmpty(inputDescription) ? { marginTop: '1.4rem' } : {}} />
-      <InputErrors errors={(!noErrorsDescription && errors) || []} name={name} />
-      <MediaLib isOpen={isOpen} onToggle={toggleMediaLib} onChange={onImageSelected} />
-    </div>
+    <Stack size={1}>
+      <Stack horizontal size={1}>
+        <Typography variant="pi" fontWeight="bold" textColor="neutral800">
+          {label}
+        </Typography>
+      </Stack>
+      <div
+        style={{
+          "line-height": "normal",
+        }}
+      >
+        <Editor
+          name={name}
+          onChange={onChange}
+          value={value || ""}
+          config={config}
+        />
+      </div>
+      {(!hint || error) && (
+        <Typography
+          as="p"
+          variant="pi"
+          id={`${name}-hint`}
+          textColor="neutral600"
+        >
+          {hint}
+        </Typography>
+      )}
+
+      {errorMessage && (
+        <Box paddingTop={1}>
+          <Typography
+            variant="pi"
+            textColor="danger600"
+            data-strapi-field-error
+          >
+            {errorMessage}
+          </Typography>
+        </Box>
+      )}
+
+      <MediaLib
+        onToggle={toggleMediaLib}
+        isOpen={isOpen}
+        onChange={handleChange}
+      />
+    </Stack>
   );
 };
 
 Wysiwyg.defaultProps = {
   errors: [],
   inputDescription: null,
-  label: '',
+  label: "",
   noErrorsDescription: false,
-  value: '',
+  value: "",
 };
 
 Wysiwyg.propTypes = {
