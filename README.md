@@ -27,7 +27,7 @@ Check out [👀 **live demo**](https://roslovets-inc.github.io/ckeditor5-build-s
 Go to your Strapi project folder and execute
 
 ```bash
-npm i strapi-plugin-ckeditor5
+npm i strapi-plugin-ckeditor5@latest
 ```
 
 Don't forget to rebuild Strapi
