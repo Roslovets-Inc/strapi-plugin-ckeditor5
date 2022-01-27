@@ -17,6 +17,7 @@ module.exports = {
     //     "subscript",
     //     "superscript",
     //     "removeFormat",
+    //     "sourceEditing",
     //     "code",
     //     "link",
     //     "bulletedList",

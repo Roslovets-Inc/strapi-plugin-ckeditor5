@@ -46,7 +46,7 @@ const Wysiwyg = ({
     if (data && data.mime.includes('image')) {
       const url = prefixFileUrlWithBackendUrl(data.url);
       editor.model.change(writer => {
-        const imageElement = writer.createElement('image', {
+        const imageElement = writer.createElement('imageBlock', {
           src: url
         });
         editor.model.insertContent(imageElement, editor.model.document.selection);
