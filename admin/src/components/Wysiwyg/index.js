@@ -20,7 +20,7 @@ const Wysiwyg = (props) => {
         const divElement = writer.createElement("div");
         data.forEach((file) => {
           const url = prefixFileUrlWithBackendUrl(file.url);
-          const imageElement = writer.createElement("image", {
+          const imageElement = writer.createElement("imageBlock", {
             src: url,
           });
           divElement._appendChild(imageElement);
