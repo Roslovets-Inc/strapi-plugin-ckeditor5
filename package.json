@@ -36,10 +36,10 @@
     "postversion": "git push && git push --tags"
   },
   "dependencies": {
-    "@ckeditor/ckeditor5-react": "^3.0.3",
+    "@ckeditor/ckeditor5-react": "^4.0.0",
     "@strapi/design-system": "^0.0.1-alpha.70",
-    "@strapi/helper-plugin": "^4.0.0",
-    "ckeditor5-build-strapi-wysiwyg": "^2.0.0-rc.1",
+    "@strapi/helper-plugin": "^4.1.5",
+    "ckeditor5-build-strapi-wysiwyg": "^2.1.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
   },
