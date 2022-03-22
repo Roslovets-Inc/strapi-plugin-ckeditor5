@@ -35,7 +35,7 @@
   },
   "dependencies": {
     "@ckeditor/ckeditor5-react": "^3.0.3",
-    "ckeditor5-build-strapi-wysiwyg": "^1.14.0"
+    "ckeditor5-build-strapi-wysiwyg": "^1.15.0"
   },
   "author": {
     "name": "Pavel Roslovets",
