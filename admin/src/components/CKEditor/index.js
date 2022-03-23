@@ -21,9 +21,12 @@ const Wrapper = styled.div`
       font: revert;
     }
     /* Revert list styling */
+    ul.todo-list {
+      list-style: none;
+    }
     ul, ol {
       list-style: initial;
-      margin-left: 16px;
+      margin-left: 32px;
     }
   }
 `;
