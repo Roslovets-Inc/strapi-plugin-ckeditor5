@@ -1,5 +1,7 @@
 # Strapi CKEditor5 plugin
 
+# ⚠️ DEPRECATED: This branch for Strapi v3 is outdated and not maintained. Please switch to the main branch and upgrade to Strapi v4 ⚠️
+
 Replace default [Strapi](https://github.com/strapi/strapi) markdown WYSIWYG editor with enhanced build of HTML [CKEditor 5](https://github.com/ckeditor/ckeditor5).
 
 ![strapi-plugin-ckeditor5](https://github.com/Roslovets-Inc/ckeditor5-build-strapi-wysiwyg/raw/main/demo/demo.png)
