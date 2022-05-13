@@ -39,7 +39,7 @@
     "@ckeditor/ckeditor5-react": "^4.0.0",
     "@strapi/design-system": "^1.1.0",
     "@strapi/helper-plugin": "^4.2.0-beta.2",
-    "ckeditor5-build-strapi-wysiwyg": "https://github.com/JournalOfTrialAndError/ckeditor5-build-strapi-wysiwyg",
+    "ckeditor5-build-strapi-wysiwyg": "^2.1.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
   },
